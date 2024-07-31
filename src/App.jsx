@@ -29,6 +29,7 @@ function App() {
                     <Route exact path="/detail/:productId" element={<ItemDetailContainer />}  />
                     <Route exact path="/cart" element={<Cart />} />
                     <Route exact path="/checkout" element={<Checkout />} />
+                    <Route path="*" element={<h1>:( 404 Not found</h1>} />
                 </Route>
             </Routes>  
         </CartProvider>
