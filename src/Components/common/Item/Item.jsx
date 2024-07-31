@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ products }) => {
 
-  console.log(JSON.stringify(products))
+  if (!products) {
+    return <div>No hay información del producto disponible</div>;
+  }
+  
   return (
     <div className="container">
 
