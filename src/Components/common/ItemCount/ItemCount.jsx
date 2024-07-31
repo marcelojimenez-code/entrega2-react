@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
-const Counter = ({ initial, min, max, onAdd, productTitle, productPrice }) => {
+const ItemCount = ({ initial, min, max, onAdd, productTitle, productPrice }) => {
 
     const [count, setCount] = useState(0); 
     const [addProduct, setAddProduct] = useState(initial); 
+    const [quantity, setQuantity] = useState(0)
 
     const increment = () => {
         // Incrementar la cantidad
@@ -44,4 +45,4 @@ const Counter = ({ initial, min, max, onAdd, productTitle, productPrice }) => {
   )
 }
 
-export default Counter
+export default ItemCount

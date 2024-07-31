@@ -4,7 +4,7 @@ import './Navbar.css'
 import CartWidget from '../../common/Cartwidget/CartWidget';
 import {Link} from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({cartCount}) => {
 
     const links = [
         {
@@ -37,20 +37,20 @@ const Navbar = () => {
             <ul className="right hide-on-med-and-down">
 
                 { links.map(x => 
-                    <li key={x.id}><Link className="navbar-item" to={x.url}>{x.link}</Link>   </li>
+                    <li key={x.id}><Link className="navbar-item" to={x.url}>{x.link}</Link></li>
                 )}  
-                <CartWidget />
+                <CartWidget cartCount={cartCount} />
             </ul>
 
             <ul id="nav-mobile" className="sidenav">
                 { links.map(x => 
                     <li key={x.id}><a href={x.url}>{x.link}</a></li>
                 )}  
-                <CartWidget />
+                <CartWidget cartCount={cartCount} />
             </ul>
+
             <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
-                
             </div>
         </nav>
     </div>

@@ -1,5 +1,5 @@
 {
-  "name": "entrega-1",
+  "name": "entrega-2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^10.12.4",
     "jquery": "^3.7.1",
     "material-icons": "^1.13.12",
     "materialize-css": "^1.0.0-rc.2",

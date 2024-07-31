@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import listProducts from "../../../data/async-mocks.json";
-import Counter from '../../common/Counter/Counter';
+import Counter from '../../common/ItemCount/ItemCount';
 import './Product.css';
 
 const Product = () => {
 
-    const [cart, setCart] = useState([]); // Estado para almacenar los productos en el carrito
+    const [cart, setCart] = useState([]); 
 
     const {productId} = useParams();
-    console.log(productId)
 
     const product = listProducts.find((product)=> product.id == productId)
 
     const {img, title, price, category, description, stock} = product;
 
-    // Función para manejar la adición de productos al carrito
     const onAdd = (count, product) => {
         const itemInCart = cart.find(item => item.id === product.id);
     
