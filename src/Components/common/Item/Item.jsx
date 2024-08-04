@@ -48,7 +48,7 @@ const Item = ({ products }) => {
                   ) : (
                     <div className="card-action">
                       <div className='center-align'>
-                        <Link className="waves-effect waves-light btn-small #039be5 darken-1">
+                        <Link className="waves-effect waves-light btn-small #e53935 red darken-1">
                           Sin Stock
                         </Link>
                       </div>

@@ -11,7 +11,7 @@ const ItemDetail = ({title, img, description, stock, category, id, price}) => {
   const handleAdd = (count) => {
      
     const produtObj = {
-      id, title, price, quantity: count
+      id, title,img, price, quantity: count
     } 
 
     addItem(produtObj)
@@ -55,7 +55,7 @@ const ItemDetail = ({title, img, description, stock, category, id, price}) => {
                             {
                               isInCart(id) ? (
                                 <div className="center-align">
-                                  <Link className="waves-effect waves-light btn-small #039be5 light-blue darken-1" to='/cart'>Finalizar Compra</Link>
+                                  <Link className="waves-effect waves-light btn-large #00796b teal darken-2" to='/cart'>Procesar pedido</Link>
                                   <br/><br/>
                                 </div>
                               ): (

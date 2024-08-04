@@ -9,9 +9,8 @@ import Login from "./Components/pages/Login/Login";
 import Layout from "./Components/Layout/Layout";
 import Cart from "./Components/common/Cart/Cart";
 import Checkout from "./Components/common/Checkout/Checkout";
-import ItemDetailContainer from "./Components/common/ItemDetailContainer/ItemDetailContainer";
 import ItemListContainer from "./Components/common/ItemListContainer/ItemListContainer";
-
+import ItemDetailContainer from "./Components/common/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
  
@@ -30,7 +29,7 @@ function App() {
             <Routes>
                 <Route element={<Layout />}>  
                     <Route exact path="/" element={<ItemListContainer />} />
-                    <Route exact path="/category/:categoryId" element={<ItemListContainer />} />
+                    <Route exact path="/products" element={<ItemListContainer />}  />
                     <Route exact path="/detail/:productId" element={<ItemDetailContainer />}  />
                     <Route exact path="/login" element={<Login/>}/>
                     <Route exact path="/cart" element={<Cart />} />

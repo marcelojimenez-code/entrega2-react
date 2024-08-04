@@ -1,26 +1,23 @@
 import { useCart } from '../../../hooks/useCart';
 
-const CartItem = ({id, name, quantity, price}) => {
+const CartItem = ({id, title, img, quantity, price}) => {
   const { removeItem } = useCart();
   const handleRemove = (id) => {
     removeItem(id)
   }
   return (
-    <article className="CardCartItem">
-      <header className="HeaderCartItem">
-        <h2 className="ItemHeaderCartItem">{name}</h2>
-      </header>
-      <section className="ContainerItemCartItem">
-        <p className="ItemCartItem">Cantidad: {quantity}</p>
-        <p className="ItemCartItem">Precio x unidad: $ {price}</p>
-      </section>
-      <footer className="ItemFooterCartItem">
-        <p className="InfoCartItem">Subtotal: $ {price * quantity}</p>
-        <button className="btn btn-primary" onClick={() => handleRemove(id)}>
-          ❌
-        </button>
-      </footer>
-    </article>
+    <>
+                
+                      <tr>
+                        <td><img src={img} alt={title} width="100" height="100" /></td>
+                        <td>{title}</td>
+                        <td>{quantity}</td>
+                        <td>${price}</td>
+                        <td>${price * quantity}</td>
+                        <td><button className="btn waves-effect waves-light #b71c1c red darken-4" onClick={() => handleRemove(id)}>Eliminar</button></td>
+                      </tr>
+
+    </>
   );
 }
 

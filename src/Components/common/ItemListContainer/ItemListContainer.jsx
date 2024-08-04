@@ -1,4 +1,4 @@
-//import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../../services/firebase/firestore/products";
@@ -7,10 +7,28 @@ import { useAsync } from "../../../hooks/useAsync";
 
 function ItemListContainer({greetings}) {
   const {categoryId} = useParams()
-  //const {setNotification} = useNotification()  
-  const asyncFunction = () => getProducts(categoryId)
+  const [selectedCategory, setSelectedCategory] = useState(categoryId || "");
+  const [categories, setCategories] = useState([]);
 
-  const { data: products, loading, error } = useAsync(asyncFunction, [categoryId]);
+  const asyncFunction = () => getProducts()
+
+  const { data: allProducts, loading, error } = useAsync(asyncFunction, []);
+
+  useEffect(() => {
+    // Obtener todas las categorías únicas de los productos
+    if (allProducts) {
+      const uniqueCategories = [...new Set(allProducts.map(product => product.category))];
+      setCategories(uniqueCategories);
+    }
+  }, [allProducts]);
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
+  const filteredProducts = selectedCategory
+  ? allProducts?.filter(product => product.category === selectedCategory)
+  : allProducts;
 
 
   if(loading) {
@@ -44,8 +62,22 @@ function ItemListContainer({greetings}) {
 
 return (
   <>
-    <h2>{greetings}</h2>
-    <ItemList products={products} />
+    <br/> 
+    <div className="container">
+    <div className="row">
+        <div className="col s12">
+          <select className="browser-default" value={selectedCategory} onChange={handleCategoryChange}>
+            <option value="">Mostrar todos</option>
+            <option value="switch">Switch</option>
+            <option value="xbox">Xbox</option>
+            <option value="PS5">PS5</option>
+          </select>
+          <label>Filtrar por categoría</label>
+        </div>
+      </div>
+    </div>
+
+    <ItemList products={filteredProducts} />
   </>
 );
 }

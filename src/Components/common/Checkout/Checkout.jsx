@@ -20,7 +20,7 @@ const Checkout = () => {
                     firstName: "Marcelo",
                     lastName: "Jimenez",
                     phone: "123456789",
-                    address: "Aca cerca"
+                    address: "Fernando Rioja 103"
                 }, 
                 items: cart,
                 totalQuantity,
@@ -84,24 +84,41 @@ const Checkout = () => {
     }
   return (
     <>
-      <div>
-        {cart.map((item) => (
-          <article key={item.id}>
-            <header>
-              <h2 className="text-secondary text-center bg-info m-5">
-                {item.name}{" "}
-                <span className="badge">Cantidad: {totalQuantity}</span>
-              </h2>
-            </header>
-          </article>
-        ))}
-      </div>
-      <h1 className="text-center">Checkout</h1>
-      {/* formulario */}
-      <div className="d-flex justify-content-center p-3 ">
-        <button className="btn btn-info" onClick={createOrder}>
-          Generar Orden
-        </button>
+    <div className="container">
+       <div className="row">
+          <div class="card">
+            <div class="card-content">
+                <table>
+                  <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                      {cart.map((item) => (
+                        <tr key={item.id}>
+                        <td><img src={item.img} alt={item.title} width="100" height="100" /></td>
+                        <td>{item.title}</td>
+                        <td>{item.quantity}</td>
+                        <td>${item.price}</td>
+                        <td>${item.price * item.quantity}</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+                <div class="card-action center">
+                  <button className="waves-effect waves-light btn-large #039be5 light-green darken-1" onClick={createOrder}>
+                      Generar Orden
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
