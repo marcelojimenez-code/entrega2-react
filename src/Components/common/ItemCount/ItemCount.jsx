@@ -1,25 +1,23 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({ initial, min, max, onAdd, productTitle, productPrice }) => {
+const ItemCount = ({initialValue=1, stock, onAdd}) => {
 
-    const [count, setCount] = useState(0); 
-    const [addProduct, setAddProduct] = useState(initial); 
-    const [quantity, setQuantity] = useState(0)
+    const [count, setCount] = useState(initialValue); 
 
     const increment = () => {
         // Incrementar la cantidad
-        if (count < max) {
-            setCount(prevCount => prevCount + 1);
+        if (count < stock) {
+            setCount(count => count + 1)
         }
         else{
-            M.toast({ html: `No hay más ${productTitle} en stock`, classes: 'red lighten-1' });
+            M.toast({ html: `No hay más productos en stock`, classes: 'red lighten-1' });
         }
     };
 
     const decrement = () => {
         // Decrementar la cantidad, asegurándose de que no sea menor que 1
-        if (count >= min && setCount(count -1)) {
-            setCount(prevCount => prevCount - 1);
+        if (count > 1) {
+            setCount(count => count - 1)
         }
     };  
 

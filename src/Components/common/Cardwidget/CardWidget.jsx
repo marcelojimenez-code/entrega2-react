@@ -1,8 +1,8 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "../../../hooks/useCart";
 
-const CartWidget = () => {
+const CardWidget = () => {
   const {totalQuantity} = useCart()
 
   const links_carro = [
@@ -28,4 +28,4 @@ const CartWidget = () => {
   )
 }
 
-export default CartWidget
+export default CardWidget

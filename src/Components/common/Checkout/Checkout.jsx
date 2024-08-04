@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useCart } from "../../../hooks/useCart"
 import { addDoc, collection, documentId, getDocs, query, where, writeBatch } from "firebase/firestore"
-import { db } from "../../../services/firebase"
+import { db } from "../../../services/firebase/index"
 
 
 const Checkout = () => {
@@ -17,8 +17,8 @@ const Checkout = () => {
         try {
             const objOrder = {
                 buyer: {
-                    firstName: "Adrian",
-                    lastName: "Gonzalez",
+                    firstName: "Marcelo",
+                    lastName: "Jimenez",
                     phone: "123456789",
                     address: "Aca cerca"
                 }, 

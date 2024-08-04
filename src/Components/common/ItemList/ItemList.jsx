@@ -1,11 +1,13 @@
 import {memo} from 'react'
-
 import Item from "../Item/Item"
+
 const ItemList = ({products}) => {
-  console.log("me redibuje")
+
   return (
-    <div className="grid">
-        {products.map( product => <Item product={product} key={product.id} />)}        
+    <div className="container">
+        <div className="row">
+          {products.map( product => <Item products={product} key={product.id} />)}  
+        </div>      
     </div>
   )
 }

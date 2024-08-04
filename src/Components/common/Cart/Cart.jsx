@@ -8,21 +8,30 @@ const Cart = () => {
     console.log(total)
 
     if(totalQuantity === 0){
-        return <h1>No hay items en el carrito</h1>
+        return <div className="container">
+                  <div className="row">
+                      <h1>No hay items en el carrito</h1>
+                  </div>
+                </div>
     }
   return (
-    <div>
-      {cart.map((item) => (
-        <CartItem key={item.id} {...item} />
-      ))}
-      <h3 style={{ textAlign: "center" }}>Total: $ {total}</h3>
-      <div className="d-flex justify-content-center ">
-        <button className="btn btn-warning">Limpiar Carrito</button>
-        <Link to="/checkout" className="btn btn-info">
-          Checkout
-        </Link>
+    <>
+      <div className="container">
+        <div className="row">
+          {cart.map((item) => (
+            <CartItem key={item.id} {...item} />
+          ))}
+          <h3 style={{ textAlign: "center" }}>Total: $ {total}</h3>
+          
+          <div className="d-flex justify-content-center ">
+                <button className="waves-effect waves-light btn-small #039be5 light-blue darken-1">Limpiar Carrito</button>
+                <Link to="/checkout" className="waves-effect waves-light btn-small #039be5 light-green darken-1">
+                  Checkout
+                </Link>
+          </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

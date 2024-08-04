@@ -1,10 +1,10 @@
 import React from 'react';
 import Logo from "../../../assets/img/logo.png";
 import './Navbar.css'
-import CartWidget from '../../common/Cartwidget/CartWidget';
+import CardWidget from '../../common/Cardwidget/CardWidget';
 import {Link} from "react-router-dom";
 
-const Navbar = ({cartCount}) => {
+const Navbar = () => {
 
     const links = [
         {
@@ -39,14 +39,14 @@ const Navbar = ({cartCount}) => {
                 { links.map(x => 
                     <li key={x.id}><Link className="navbar-item" to={x.url}>{x.link}</Link></li>
                 )}  
-                <CartWidget cartCount={cartCount} />
+                <CardWidget />
             </ul>
 
             <ul id="nav-mobile" className="sidenav">
                 { links.map(x => 
                     <li key={x.id}><a href={x.url}>{x.link}</a></li>
                 )}  
-                <CartWidget cartCount={cartCount} />
+                <CardWidget />
             </ul>
 
             <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
